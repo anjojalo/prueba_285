@@ -1,1 +1,34 @@
 <p>register-form works!</p>
+
+<form  [formGroup]="formLogin" (ngSubmit)="addLogin(formLogin.value)">
+
+    <div>
+      <label for="email-form" >Email address</label>
+    </div>
+
+    <div>
+      <input type="email" id="email-form"  formControlName="email">
+      <p>{{validationEmail()}}</p>
+    </div>
+  
+    <div>
+    <label for="password-form" >Password</label>
+  </div>
+    
+    <div>
+    <input type="password"  id="password-form" formControlName="password">
+    <p>{{validationPassword()}}</p>
+  </div>
+
+    <div>
+    <label for="password-confirm-form">Repeat Password</label>
+  </div>
+
+    <div>
+    <input type="password"  id="password-confirm-form-form" formControlName="passwordConfirm">
+  </div>
+  <p>{{this.messageError}}</p>
+  
+
+  <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Submit</button>
+</form>
